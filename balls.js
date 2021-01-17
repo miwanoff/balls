@@ -7,7 +7,7 @@ class Ball {
     this.context = this.canvas.getContext("2d");
     this.n = n;
     this.x = x;
-    this.y = x;
+    this.y = y;
     this.colors = colors;
     this.width = canvas.width;
     this.height = canvas.height;
