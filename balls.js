@@ -83,6 +83,20 @@ class BallsField {
     this.context.lineWidth = 3;
     this.context.strokeRect(0, 0, this.width, this.height);
   }
+
+  go() {
+    this.clear();
+    for (let i = 0; i < 10; i++) {
+      this.balls[i].draw();
+      this.balls[i].move();
+      this.balls[i].checkCollosion();
+    }
+    this.drawBorder();
+  }
+
+  start() {
+    setInterval(this.go.bind(this), 30);
+  }
 }
 
 const balls = [];
@@ -90,4 +104,5 @@ for (let i = 0; i < n; i++) {
   balls[i] = new Ball(canvas);
 }
 const ballsField = new BallsField(balls, canvas);
-ballsField.drawBorder();
+//ballsField.drawBorder();
+ballsField.start();
