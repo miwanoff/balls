@@ -3,10 +3,9 @@ const n = 10;
 const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Lime"];
 class Ball {
   // конструктор для шариков
-  constructor(canvas, n = 10, colors = ["blue"], x = 100, y = 100) {
+  constructor(canvas, colors = ["blue"], x = 100, y = 100) {
     this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
-    this.n = n;
     this.x = x;
     this.y = y;
     this.colors = colors;
