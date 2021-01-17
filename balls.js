@@ -26,7 +26,18 @@ class Ball {
       this.context.stroke();
     }
   }
+
+  // рисование шарика заданным цветом
+  draw() {
+    this.context.fillStyle = this.getColor();
+    this.circle(this.x, this.y, 5, true);
+  }
+
+  getColor() {
+    return this.colors[0];
+  }
 }
 const ball = new Ball(canvas);
 // alert(ball.colors);
 // ball.circle(100, 100, 10);
+ball.draw();
