@@ -36,8 +36,58 @@ class Ball {
   getColor() {
     return this.colors[0];
   }
+
+  // движение шарика
+  move() {
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+  }
+
+  // проверка столкновения шарика и стен - меняем движение на противоположное
+  checkCollosion() {
+    if (this.x < 0 || this.x > this.width) {
+      this.xSpeed = -this.xSpeed;
+    }
+
+    if (this.y < 0 || this.y > this.height) {
+      this.ySpeed = -this.ySpeed;
+    }
+  }
 }
 const ball = new Ball(canvas);
 // alert(ball.colors);
 // ball.circle(100, 100, 10);
-ball.draw();
+//ball.draw();
+
+class BallsField {
+  constructor(balls, canvas) {
+    this.context = canvas.getContext("2d");
+    this.balls = balls;
+    this.width = canvas.width;
+    this.height = canvas.height;
+
+    this.clear();
+    this.drawBorder();
+  }
+  clear() {
+    this.context.fillStyle = this.context.clearRect(
+      0,
+      0,
+      this.width,
+      this.height
+    );
+  }
+
+  drawBorder() {
+    this.context.strokeStyle = "red";
+    this.context.lineWidth = 3;
+    this.context.strokeRect(0, 0, this.width, this.height);
+  }
+}
+
+const balls = [];
+for (let i = 0; i < n; i++) {
+  balls[i] = new Ball(canvas);
+}
+const ballsField = new BallsField(balls, canvas);
+ballsField.drawBorder();
