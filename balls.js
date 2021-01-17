@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas");
 const n = 10;
 
 class Ball {
+  // конструктор для шариков
   constructor(canvas, n = 10, colors = ["blue"], x = 100, y = 100) {
     this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
@@ -14,6 +15,18 @@ class Ball {
     this.xSpeed = Math.floor(Math.random() * 10);
     this.ySpeed = Math.floor(Math.random() * 10);
   }
+
+  // функция рисования шарика
+  circle(x, y, radius, fillCircle = true) {
+    this.context.beginPath();
+    this.context.arc(x, y, radius, 0, Math.PI * 2, false);
+    if (fillCircle) {
+      this.context.fill();
+    } else {
+      this.context.stroke();
+    }
+  }
 }
-// const ball = new Ball(canvas);
+const ball = new Ball(canvas);
 // alert(ball.colors);
+// ball.circle(100, 100, 10);
