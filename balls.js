@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
 const n = 10;
-
+const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Lime"];
 class Ball {
   // конструктор для шариков
   constructor(canvas, n = 10, colors = ["blue"], x = 100, y = 100) {
